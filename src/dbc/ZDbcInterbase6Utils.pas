@@ -111,6 +111,7 @@ type
     function GetIbSqlType(const Index: Word): Smallint;
     function GetIbSqlSubType(const Index: Word): Smallint;
     function GetIbSqlLen(const Index: Word): Smallint;
+    procedure SetTrHandle(const TrHandle: PISC_TR_HANDLE);
   end;
 
   { parameters interface sqlda}
@@ -199,6 +200,7 @@ type
     function GetIbSqlType(const Index: Word): Smallint;
     function GetIbSqlSubType(const Index: Word): Smallint;
     function GetIbSqlLen(const Index: Word): Smallint;
+    procedure SetTrHandle(const TrHandle: PISC_TR_HANDLE);
   end;
 
   { Parameters class for sqlda structure.
@@ -1778,6 +1780,11 @@ begin
   {$IFOPT D+}
 {$R+}
 {$ENDIF}
+end;
+
+procedure TZSQLDA.SetTrHandle(const TrHandle: PISC_TR_HANDLE);
+begin
+  FTransactionHandle := TrHandle;
 end;
 
 {**

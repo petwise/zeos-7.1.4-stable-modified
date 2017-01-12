@@ -533,6 +533,8 @@ begin
   with FIBConnection do
   begin
     try
+      if Assigned(FParamSQLData) then
+        FParamSQLData.SetTrHandle(GetTrHandle);
       BindInParameters;
 
       if (StatementType = stSelect) then     //AVZ Get many rows - only need to use execute not execute2
